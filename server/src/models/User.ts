@@ -6,6 +6,11 @@ const { hash, compare } = bcrypt;
 
 
 const userSchema = new Schema({
+    username: {
+        type: String,
+        unique: true,
+        minLength: [2, 'Your username must be at least 2 characters in length']
+    },
     email: {
         type: String,
         // The unique rule only works whne the collection is first created
@@ -20,7 +25,7 @@ const userSchema = new Schema({
         minlength: [6, 'Your password must be at least 6 characters in length']
     },
     //The notes property is going to be an array of note ids
-    notes: [{
+    pets: [{
         type: Schema.Types.ObjectId,
         ref: 'Note'
     }]
