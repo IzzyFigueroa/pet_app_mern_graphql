@@ -22,3 +22,7 @@ nav a.active:not(.navbar-brand),
   background: cover;
   min-height: 700px;
 }
+
+.pet-output {
+  grid-template-columns: repeat(3, 1fr);
+}
