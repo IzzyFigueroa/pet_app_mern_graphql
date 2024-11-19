@@ -23,6 +23,24 @@ nav a.active:not(.navbar-brand),
   min-height: 700px;
 }
 
+/* .landing-post:nth-child(even) {
+background: #d4d4d4;
+} */
+ .landing-post {
+  position: relative;
+ }
+
+.landing-post:before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  background: #f6f6f6;
+  width: 7px;
+  height: 100%;
+}
+
+
 .pet-output {
   grid-template-columns: repeat(3, 1fr);
 }

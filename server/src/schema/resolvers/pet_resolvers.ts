@@ -5,6 +5,7 @@ import Context from '../../interfaces/Context';
 import Pet from '../../models/Pet.js';
 import Post from '../../models/Post.js';
 import { errorHandler } from '../helpers/index.js';
+import { GraphQLError } from 'graphql';
 
 type PetArguments = {
     name?: string;
@@ -73,7 +74,8 @@ const pet_resolvers = {
                     message: 'Pet added successfully!'
                 }
             } catch (error) {
-                return errorHandler(error)
+                const errorMessage = errorHandler(error)
+                throw new GraphQLError(errorMessage);
             }
         },
 
@@ -96,8 +98,10 @@ const pet_resolvers = {
               return {
                 message: 'Post created successfully!'
               } 
-            } catch (error) {
-                return errorHandler(error)
+            } catch (error: any) {
+                const errorMessage = errorHandler(error)
+
+                throw new GraphQLError(errorMessage);
             }
         }
     }

@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App.tsx'
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
 });
