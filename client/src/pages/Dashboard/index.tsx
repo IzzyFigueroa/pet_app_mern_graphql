@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_USER_PETS } from '../../graphql/queries';
 import { Pet } from '../../interfaces';
 import CreatePostModal from './components/CreatePostModal';
-import ViewPostModal from './components/viewPostModal';
+import ViewPostModal from './components/ViewPostModal';
 function Dashboard() {
   const { data: petData } = useQuery(GET_USER_PETS);
   const [selectedPet, setSelectedPet] = useState<null | Pet>(null);
