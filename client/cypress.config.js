@@ -7,7 +7,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: is_prod ? "https://localhost:10000" : "http://localhost:5173", // Update this to match your development server URL
+    baseUrl: is_prod ? "http://localhost:10000" : "http://localhost:5173", // Update this to match your development server URL
   },
 
   component: {
