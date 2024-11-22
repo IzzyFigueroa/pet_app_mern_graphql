@@ -1,13 +1,13 @@
 import { defineConfig } from "cypress";
 
-const is_prod = process.env.NODE_ENV === "production";
+const is_prod = process.env.PORT === "production";
 
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: is_prod ? "https://localhost:3333" : "http://localhost:5173", // Update this to match your development server URL
+    baseUrl: is_prod ? "https://localhost:10000" : "http://localhost:5173", // Update this to match your development server URL
   },
 
   component: {
