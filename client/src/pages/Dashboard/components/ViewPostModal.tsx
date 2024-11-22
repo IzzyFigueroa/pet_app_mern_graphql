@@ -7,12 +7,12 @@ interface ModalProps {
   setShowPostsModal: React.Dispatch<React.SetStateAction<boolean>>;
   selectedPet: Pet | null;
 }
-function ViewPostModal( {
+function ViewPostModal({
   showPostsModal,
   setShowPostsModal,
   selectedPet
 }: ModalProps) {
-  const {data: postData} = useQuery(GET_POSTS_FOR_PET, {
+  const { data: postData } = useQuery(GET_POSTS_FOR_PET, {
     variables: {
       petId: selectedPet?._id
     }
@@ -27,12 +27,16 @@ function ViewPostModal( {
         <Modal.Title>Posts for {selectedPet?.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {postData && !postData.getPostForPet.length && (
+          <p>No posts have been added.</p>
+        )}
+
         {postData && postData.getPostForPet.map((post: Post) => (
-            <article key={post._id}>
-                <h5>{post.title}</h5>
-                <p>{post.body}</p>
-                <hr/>
-            </article>
+          <article key={post._id}>
+            <h5>{post.title}</h5>
+            <p>{post.body}</p>
+            <hr />
+          </article>
         ))}
       </Modal.Body>
       <Modal.Footer>
