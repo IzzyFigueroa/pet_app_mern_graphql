@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      MONGODB_URL: ${{ secrets.MONGODB_URL }}
 
     steps:
       - name: Checkout code
@@ -22,4 +25,5 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: test
+        run: npm test
+        
