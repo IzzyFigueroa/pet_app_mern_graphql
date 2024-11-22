@@ -17,6 +17,9 @@ const postSchema = new Schema({
         required: [true, 'You must attach the pet -id'],
         ref: 'Pet'   
      }
+     
+}, {
+    collection: 'pet_app_posts'
 });
 
 const Post =model('Post', postSchema)
