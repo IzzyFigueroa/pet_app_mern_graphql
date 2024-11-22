@@ -113,7 +113,10 @@ const postTitle = 'Post for ' + petName;
     .contains('View Posts')
     .click();
     cy.get('.modal-body').contains(postTitle)
+
+    cy.visit('/');
     
+    cy.get('main').contains(postTitle);
 
 
   })
